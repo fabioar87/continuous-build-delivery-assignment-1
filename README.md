@@ -1,2 +1,5 @@
-# continuous-build-delivery-assignment-1
-Continuous and build delivery class assignment #1
+# Continuous Build and Delivery: Pipeline Implementation
+
+>@author: _Fabio Ribeiro_, **a00326833@student.tus.ie**
+
+Continuous Build and Delivery, class (AL_KCNCM_9_1) pipeline project repository.

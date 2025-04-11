@@ -5,7 +5,8 @@
     "source_ami": "AWS LINUX AMI",
     "instance_type" : "INSTANCE TYPE",
     "ami_name": "jenkins-master-std-alone",
-    "ami_description": "Jenkins master stand alone instance"
+    "ami_description": "Jenkins master stand alone instance",
+    "jenkins_admin_password": "JENKINS ADMIN PASSWORD"
   },
   "builders" : [
     {
@@ -20,6 +21,16 @@
     }
   ],
   "provisioners" : [
+    {
+      "type": "file",
+      "source": "./scripts",
+      "destination": "/tmp/"
+    },
+    {
+      "type": "file",
+      "source": "./config",
+      "destination": "/tmp/"
+    },
     {
       "type": "shell",
       "script": "./setup.sh",

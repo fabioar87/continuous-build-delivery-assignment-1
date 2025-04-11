@@ -4,8 +4,10 @@ Build a standalone instance (not heavy load), no workers just a single master no
 
 _Results_:
 ==> Builds finished. The artifacts of successful builds are:
+
 --> amazon-ebs: AMIs were created:
-us-east-1: ami-00e406ec2b522c966
+
+us-east-1: ami-0433c70c47384e496
 
 The AMI custom Jenkins baked image can be found in the AMI catalog.
 
@@ -21,8 +23,12 @@ yum install -y jenkins
 ```
 
 ### Project Structure
-> ./standalone: contains the template and specific configuration file to provision 
-and configure the jenkins image
+> ./controller: contains the template and specific configuration file to provision 
+and configure the master jenkins node.
+
+> ./controller/config: jenkins plugin list and a shell script automating the installation procedure.
+
+> ./controller/scripts: groovy scripts with settings procedures. 
 
 What`s the version of jenkins that will be installed?
 Dependencies and requirements, which java version is required?
@@ -47,3 +53,5 @@ The build process returned errors:
 1. No package java-17-openjdk available (workaround): 
    * enable the Amazon Corretto 17 repository
    * install java
+2. The automated plugin installation procedure seems didn't work well. Ex.: the blueocean
+   plugin. I installed manually.

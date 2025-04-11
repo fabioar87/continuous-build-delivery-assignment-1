@@ -5,8 +5,6 @@ set -e
 plugin_dir=/var/lib/jenkins/plugins
 file_owner=jenkins.jenkins
 
-mkdir -p /var/lib/jenkins/plugins
-
 installPlugin() {
   if [ -f ${plugin_dir}/${1}.hpi -o -f ${plugin_dir}/${1}.jpi ]; then
     if [ "$2" == "1" ]; then

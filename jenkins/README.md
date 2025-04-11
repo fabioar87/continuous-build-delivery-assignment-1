@@ -3,11 +3,7 @@ The plan is bake a custom Jenkins image using `hashicorp packer` tool.
 Build a standalone instance (not heavy load), no workers just a single master node.
 
 _Results_:
-==> Builds finished. The artifacts of successful builds are:
 
---> amazon-ebs: AMIs were created:
-
-us-east-1: ami-0433c70c47384e496
 
 The AMI custom Jenkins baked image can be found in the AMI catalog.
 
@@ -53,5 +49,5 @@ The build process returned errors:
 1. No package java-17-openjdk available (workaround): 
    * enable the Amazon Corretto 17 repository
    * install java
-2. The automated plugin installation procedure seems didn't work well. Ex.: the blueocean
-   plugin. I installed manually.
+2. The automated plugin installation process seems is not working. It is still necessary install
+using the plugin page then rebooting jenkins service.

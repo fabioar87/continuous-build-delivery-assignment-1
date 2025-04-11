@@ -9,7 +9,6 @@ aws-credentials
 aws-java-sdk
 block-queued-job
 blueocean-autofavorite
-blueocean-bitbucket-pipeline
 blueocean-commons
 blueocean-config
 blueocean-core-js
@@ -34,7 +33,6 @@ bouncycastle-api
 branch-api
 build-pipeline-plugin
 checks-api
-cloudbees-bitbucket-branch-source
 cloudbees-folder
 command-launcher
 conditional-buildstep

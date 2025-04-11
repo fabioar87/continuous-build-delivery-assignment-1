@@ -4,7 +4,7 @@ import jenkins.model.*
 import hudson.security.*
 
 def instance = Jenkins.getInstance()
-def adminPassword = System.getenv("JENKINS_ADMIN_PASSWORD") ?: "admin"
+def adminPassword = System.getenv("JENKINS_ADMIN_PASSWORD") ?: "admin123"
 
 println "--> creating local user 'USERNAME'"
 

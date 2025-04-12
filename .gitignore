@@ -26,3 +26,5 @@ replay_pid*
 .idea
 jenkins/controller/variables.json
 lib
+infrastructure/.terraform
+.ssh

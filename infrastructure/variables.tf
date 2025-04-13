@@ -38,12 +38,13 @@ variable "pipeline-lab-public-subnet-1-cidr" {
 }
 
 variable "pipeline-lab-public-subnet-2-cidr" {
-  default = "10.0.3.0/24"
+  description = "Lab public subnet 2 IP CIDR"
+  default     = "10.0.2.0/24"
 }
 
 variable "pipeline-lab-private-subnet-1-cidr" {
   description = "Lab private subnet 1 IP CIDR"
-  default     = "10.0.2.0/24"
+  default     = "10.0.3.0/24"
 }
 
 variable "ami_base" {
@@ -53,7 +54,7 @@ variable "ami_base" {
 
 variable "nat_ami" {
   description = "Provides the NAT component AMI image"
-  default     = "ami-05a783b74ab65fa72"
+  default     = "ami-095be693f7434f4b7"
 }
 
 variable "bastion_instance_type" {

@@ -48,7 +48,7 @@ resource "aws_subnet" "pipeline-lab-private-subnet-1" {
   map_public_ip_on_launch = false
 
   tags = {
-    Name = "Pipine lab private subnet #1"
+    Name = "Pipeline lab private subnet #1"
   }
 }
 
@@ -76,8 +76,13 @@ resource "aws_route_table" "public_rt" {
   }
 }
 
-resource "aws_route_table_association" "public" {
+resource "aws_route_table_association" "public1" {
   subnet_id      = aws_subnet.pipeline-lab-public-subnet-1.id
+  route_table_id = aws_route_table.public_rt.id
+}
+
+resource "aws_route_table_association" "public2" {
+  subnet_id      = aws_subnet.pipeline-lab-public-subnet-2.id
   route_table_id = aws_route_table.public_rt.id
 }
 
@@ -108,13 +113,13 @@ resource "aws_route_table" "private_rt" {
   }
 }
 
-resource "aws_route" "nat_route" {
-  route_table_id         = aws_route_table.private_rt.id
-  destination_cidr_block = "0.0.0.0/0"
-  network_interface_id   = aws_instance.nat.primary_network_interface_id
-}
-
 resource "aws_route_table_association" "private" {
   subnet_id      = aws_subnet.pipeline-lab-private-subnet-1.id
   route_table_id = aws_route_table.private_rt.id
+}
+
+resource "aws_route" "outbound_nat_route" {
+  route_table_id         = aws_route_table.private_rt.id
+  destination_cidr_block = "0.0.0.0/0"
+  network_interface_id   = aws_instance.nat.primary_network_interface_id
 }

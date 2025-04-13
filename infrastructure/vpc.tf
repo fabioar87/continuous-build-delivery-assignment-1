@@ -29,6 +29,17 @@ resource "aws_subnet" "pipeline-lab-public-subnet-1" {
   }
 }
 
+resource "aws_subnet" "pipeline-lab-public-subnet-2" {
+  vpc_id                  = aws_vpc.pipeline-lab-vpc.id
+  cidr_block              = var.pipeline-lab-public-subnet-2-cidr
+  availability_zone       = var.az_2
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "Pipeline lab public subnet #2"
+  }
+}
+
 // Lab private subnet #1
 resource "aws_subnet" "pipeline-lab-private-subnet-1" {
   vpc_id                  = aws_vpc.pipeline-lab-vpc.id
@@ -70,19 +81,19 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-// Private Route table
-// NAT instance configuration
-resource "aws_instance" "nat" {
-  ami                         = "ami-05a783b74ab65fa72"
-  instance_type               = "t2.micro"
-  subnet_id                   = aws_subnet.pipeline-lab-public-subnet-1.id
-  associate_public_ip_address = true
-  source_dest_check           = false
-
-  tags = {
-    Name = "nat_${var.vpc_name}"
-  }
-}
+# // Private Route table
+# // NAT instance configuration
+# resource "aws_instance" "nat" {
+#   ami                         = "ami-05a783b74ab65fa72"
+#   instance_type               = "t2.micro"
+#   subnet_id                   = aws_subnet.pipeline-lab-public-subnet-1.id
+#   associate_public_ip_address = true
+#   source_dest_check           = false
+#
+#   tags = {
+#     Name = "nat_${var.vpc_name}"
+#   }
+# }
 
 // Private Route table
 resource "aws_route_table" "private_rt" {
@@ -98,12 +109,12 @@ resource "aws_route_table" "private_rt" {
 }
 
 resource "aws_route" "nat_route" {
-  route_table_id = aws_route_table.private_rt.id
+  route_table_id         = aws_route_table.private_rt.id
   destination_cidr_block = "0.0.0.0/0"
-  network_interface_id = aws_instance.nat.primary_network_interface_id
+  network_interface_id   = aws_instance.nat.primary_network_interface_id
 }
 
 resource "aws_route_table_association" "private" {
-  subnet_id = aws_subnet.pipeline-lab-private-subnet-1.id
+  subnet_id      = aws_subnet.pipeline-lab-private-subnet-1.id
   route_table_id = aws_route_table.private_rt.id
 }

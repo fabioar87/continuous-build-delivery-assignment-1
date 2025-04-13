@@ -9,3 +9,7 @@ output "nat_ip" {
 output "bastion" {
   value = aws_instance.bastion.public_ip
 }
+
+output "jenkins_master_alb" {
+  value = aws_lb.jenkins_master_lb.dns_name
+}

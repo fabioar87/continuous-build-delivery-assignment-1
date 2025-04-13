@@ -42,3 +42,6 @@ It is possible to open an SSH tunnel:
 ```shell
 ssh -L TARGET_PORT:TARGET_INSTANCE_PRIVATE_IP:22 ec2-user@BASTION_IP
 ```
+
+Connection test:
+1. 

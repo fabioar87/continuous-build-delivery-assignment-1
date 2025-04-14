@@ -13,3 +13,7 @@ output "bastion" {
 output "jenkins_master_alb" {
   value = aws_lb.jenkins_master_lb.dns_name
 }
+
+output "sonar_alb" {
+  value = aws_lb.sonar_lb.dns_name
+}

@@ -5,7 +5,13 @@ pipeline-lab-private-subnet-1-cidr = "10.0.3.0/24"
 public_key                         = ".ssh/bastion_host.pub"
 jenkins_master_ami                 = "ami-0ab56d5c1d7cb1246"
 nat_ami                            = "ami-095be693f7434f4b7"
+sonar_ami                          = "ami-022d070d92cb34908"
 // T2.Medium type: validation
 jenkins_master_instance_type       = "t2.medium"
 jenkins_master_volume_type         = "gp3"
 jenkins_master_volume_size         = 30
+
+// Sonar service
+sonar_instance_type = "t2.large"
+sonar_volume_type   = "gp2"
+sonar_volume_size   = 30

@@ -1,0 +1,7 @@
+{
+  "region": "us-east-1",
+  "aws_profile": "default",
+  "source_ami": "ami-07a6f770277670015",
+  "instance_type": "t2.micro",
+  "ami_name": "sonar_instance"
+}

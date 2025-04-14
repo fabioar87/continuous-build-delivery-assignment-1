@@ -89,3 +89,26 @@ variable "jenkins_master_volume_size" {
   type    = number
   default = 30
 }
+
+// Sonar service
+variable "sonar_ami" {
+  description = "Provides Sonar component AMI image"
+  default     = ""
+}
+
+variable "sonar_instance_type" {
+  type        = string
+  description = "EC2 Jenkins master instance type"
+  default     = "t2.medium"
+}
+
+variable "sonar_volume_type" {
+  type        = string
+  description = "Jenkins master instance volume type"
+  default     = "gp3"
+}
+
+variable "sonar_volume_size" {
+  type    = number
+  default = 30
+}

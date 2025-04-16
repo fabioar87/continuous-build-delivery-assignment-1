@@ -12,6 +12,6 @@ jenkins_master_volume_type         = "gp3"
 jenkins_master_volume_size         = 30
 
 // Sonar service
-sonar_instance_type = "t2.large"
+sonar_instance_type = "t2.medium"
 sonar_volume_type   = "gp2"
 sonar_volume_size   = 30

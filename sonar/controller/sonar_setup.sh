@@ -3,13 +3,14 @@
 SONAR_DB_NAME=sonar
 SONAR_DB_USER=sonar
 SONAR_DB_PASS=sonar
-SONAR_VERSION=sonarqube-8.2.0.32929
+SONAR_VERSION=sonarqube-9.9.4.87374
 
 # Install Java
 yum update
 
 echo "Installing Java 17 environment"
-yum install -y java-11-amazon-corretto
+# yum install -y java-11-amazon-corretto
+yum install -y java-17-amazon-corretto
 # yum install -y java-1.8.0-amazon-corretto
 
 # Install PostgreSQL

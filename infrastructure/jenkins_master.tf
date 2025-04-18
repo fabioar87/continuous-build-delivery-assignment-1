@@ -2,12 +2,12 @@ resource "aws_security_group" "master_sg" {
   name   = "jenkins-master_sg_${var.vpc_name}"
   vpc_id = aws_vpc.pipeline-lab-vpc.id
 
-  # ingress {
-  #   from_port       = "22"
-  #   to_port         = "22"
-  #   protocol        = "tcp"
-  #   security_groups = [aws_security_group.bastion_sg.id]
-  # }
+  ingress {
+    from_port       = "22"
+    to_port         = "22"
+    protocol        = "tcp"
+    security_groups = [aws_security_group.bastion_sg.id]
+  }
 
   ingress {
     from_port        = "8080"

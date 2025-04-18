@@ -15,3 +15,7 @@ jenkins_master_volume_size         = 30
 sonar_instance_type = "t2.medium"
 sonar_volume_type   = "gp2"
 sonar_volume_size   = 30
+
+// Application server
+service_ami           = "ami-07a6f770277670015"
+service_instance_type = "t2.micro"

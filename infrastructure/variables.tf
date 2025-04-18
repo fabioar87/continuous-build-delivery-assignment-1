@@ -112,3 +112,12 @@ variable "sonar_volume_size" {
   type    = number
   default = 30
 }
+
+// Application EC2 server
+variable "service_ami" {
+  type = string
+}
+
+variable "service_instance_type" {
+  type = string
+}
